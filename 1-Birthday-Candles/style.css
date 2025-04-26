@@ -1,0 +1,198 @@
+body {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.candles {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.candle {
+    position: relative;
+    width: 20px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: visible;
+}
+
+.body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #80deea, #4dd0e1);
+    border-radius: 10px;
+    transition: height 1s ease-out, background 1s ease-out;
+}
+
+.flame {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 30px;
+    background: radial-gradient(circle, #ffecb3 0%, #ffd54f 60%, transparent 100%);
+    border-radius: 50% 50% 35% 35%;
+    box-shadow: 0 0 10px 5px rgba(255, 214, 79, 0.5);
+    animation: flicker 0.3s infinite alternate;
+    z-index: 10;
+    transform-origin: center bottom;
+}
+
+@keyframes flicker {
+    0% {
+        transform: translateX(-50%) scale(1) rotate(-3deg);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1.1) rotate(3deg);
+        opacity: 1;
+    }
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 26px;
+    color: #00838f;
+    transition: all 0.5s ease-in-out;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background: linear-gradient(45deg, #26c6da, #00acc1);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: none;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #00acc1, #26c6da);
+    transform: scale(1.05);
+}
+
+#sendWish {
+    display: block;
+}
+
+.smoke {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: 10px;
+    height: 30px;
+    background: radial-gradient(ellipse at center, rgba(200, 200, 200, 0.6) 0%, transparent 80%);
+    transform: translateX(-50%) scale(1);
+    animation: smokeUp 2s ease-out forwards;
+}
+
+@keyframes smokeUp {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-100px) scale(2.5);
+        opacity: 0;
+    }
+}
+
+.wish-box {
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    max-width: 300px;
+}
+
+.wish-box textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    border-radius: 8px;
+    border: 1px solid #b2ebf2;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-family: 'Cairo', sans-serif;
+}
+
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #ffecb3;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 30px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, #ff8a80, #e53935);
+    border-radius: 50% 50% 50% 50%;
+    animation: floatUp linear forwards;
+    z-index: 5;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) scale(1.2);
+        opacity: 0;
+    }
+}
